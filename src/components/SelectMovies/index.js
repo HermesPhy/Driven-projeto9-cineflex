@@ -1,6 +1,10 @@
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
-import {Div} from "./style";
+import {ImageMovies from} "../StylesAll/ImageMovies";
+import {Main from} "../StylesAll/Main";
+import {Title from} "../StylesAll/Title";
+import { BodyMovie } from "./style";
 
 export default function SelectMovies() {
 
@@ -17,18 +21,26 @@ export default function SelectMovies() {
     
 
     return movies.length > 0 ? (
-        <Div>
-        <h1>Selecione o filme</h1>
-        <section>
+        <Main fullscreen={true}>
+        <Title>Selecione o filme</Title>
+        <BodyMovie>
             {
             movies.map(movie => {
                 const {id, title, posterURL} = movie;
-                return <div className="boxMovie">
-                        <img src={posterURL} alt={title} key={id}/>
-                        </div>
+                return  (
+                    <ImageMovies imagePath={posterURL}>
+                            <Link to={`/sessoes/${id}`}>
+                                <img src={posterURL} alt={title} key={id}/>
+                            </Link>
+                        </ImageMovies>
+                        )
                 })
             }
-        </section>
-        </Div>
-    ) : <p>Carregando a página</p>
+        </BodyMovie>
+        </Main>
+    ) : (
+        <Main>
+            <span>Carregando a página</span>
+        </Main>
+    );
 }
