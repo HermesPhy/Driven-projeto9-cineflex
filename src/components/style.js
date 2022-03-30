@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-export const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
 body {
     box-sizing: border-box;
     color: #FFFFFF;
@@ -41,3 +41,4 @@ body {
     border-radius: 3px;
   }
 `
+export default GlobalStyle;

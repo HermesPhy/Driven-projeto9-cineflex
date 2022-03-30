@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Title = styled.nav`
+const Title = styled.nav`
     width: 100vw;
     height: 60px;
     margin-top: 120px;
@@ -14,3 +14,5 @@ export const Title = styled.nav`
         margin-bottom: 5px;
     }
 `
+
+export default Title;

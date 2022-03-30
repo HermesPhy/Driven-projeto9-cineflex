@@ -1,6 +1,5 @@
-import {FooterMain} from "./style";
-import {ImageMovies} from "../StylesAll/ImageMovies";
-import {FooterContent} from "./style";
+import styled from "styled-components";
+import ImageMovies from "../StylesAll/ImageMovies";
 
 export default function Footer({title, posterURL, date, hour}){
     return (
@@ -15,3 +14,32 @@ export default function Footer({title, posterURL, date, hour}){
         </FooterMain>
     );
 }
+
+const FooterMain = styled.footer`
+    width: 100vw;
+    height: 117px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    position: fixed;
+    background: #DFE6ED;
+    border: 1px solid #9EADBA;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+`
+
+const FooterContent = styled.div`
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    
+    h3{
+    margin-bottom: 10px;
+    font-size: 22px;
+    text-align: left;
+    color: #293845;
+    }
+`

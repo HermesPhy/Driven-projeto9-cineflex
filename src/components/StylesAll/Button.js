@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Button = styled.button`
+const Button = styled.button`
     width:${props => props.width};
     height: 43px;
     margin-right: 10px;
@@ -14,3 +14,4 @@ export const Button = styled.button`
     line-height: 22px;
     color: #FFFFFF;
 `
+export default Button;

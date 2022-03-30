@@ -1,10 +1,11 @@
+import styled from "styled-components";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import {ImageMovies from} "../StylesAll/ImageMovies";
-import {Main from} "../StylesAll/Main";
-import {Title from} "../StylesAll/Title";
-import { BodyMovie } from "./style";
+
+import ImageMovies from "../StylesAll/ImageMovies";
+import Main from "../StylesAll/Main";
+import Title from "../StylesAll/Title";
 
 export default function SelectMovies() {
 
@@ -44,3 +45,11 @@ export default function SelectMovies() {
         </Main>
     );
 }
+
+const BodyMovie = styled.section`
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    `

@@ -1,17 +1,13 @@
 import { useState, useEffect } from "react";
 import {useParams, useNavigate} from "react-router-dom";
 import axios from "axios";
+import styled from "styled-components";
 
-import {Title} from "../StylesAll/Title";
-import {Main} from "../StylesAll/Main";
-import {Button} from "../StylesAll/Button";
-import {BackToHome} from "../StylesAll/BackToHome";
-import {Footer} from "../Footer/";
-
-import {DistributeSeats} from "./style";
-import {SeatPlace} from "./style";
-import {Section} from "./style";
-import {Article} from "./style";
+import Title from "../StylesAll/Title";
+import Main from "../StylesAll/Main";
+import Button from "../StylesAll/Button";
+import BackToHome from "../StylesAll/BackToHome";
+import Footer from "../Footer/";
 
 export default function SelectSeat({getGenerateTicket}){
 
@@ -32,7 +28,7 @@ export default function SelectSeat({getGenerateTicket}){
             setSeats(data);
         });
         promise.catch(err => console.log(err.response));
-    }, []);
+    });
 
     function reserveSeat(e){
         e.preventDefault();
@@ -59,12 +55,12 @@ export default function SelectSeat({getGenerateTicket}){
                             return (
                                 isAvailable ?
                                 
-                                <SeatPlace availability={selectedSeats.includes(id)?2:0} 
+                                <SeatPlace availability={selectedSeats.includes(id) ? 2 : 0} 
                                     onClick={() => 
-                                        selectedSeats.includes(id)?
+                                        selectedSeats.includes(id) ?
                                         setSelectedSeats(() => {
                                             let placesAux = selectedSeats;
-                                            placesAux.splice(selectedSeats.indexOf(id),1);
+                                            placesAux.splice(selectedSeats.indexOf(id), 1);
                                             return [...placesAux];
                                         })
                                         :
@@ -103,6 +99,7 @@ export default function SelectSeat({getGenerateTicket}){
                         onChange={(e) => setName(e.target.value)}
                         value = {name}
                         required/>
+                        {console.log(name)}
                     <label>CPF do comprador:</label>
                     <input type = "text" 
                         placeholder = "Digite seu CPF..."
@@ -111,6 +108,7 @@ export default function SelectSeat({getGenerateTicket}){
                         onChange = {(e) => setCpf(e.target.value)}
                         value = {cpf}
                         required/>
+                        {console.log(cpf)}
                     <Button width = {"100%"} type = "submit" 
                             onClick = {() => {
                                 const ticket = {
@@ -140,3 +138,54 @@ export default function SelectSeat({getGenerateTicket}){
         </>
     );
 }
+
+const DistributeSeats = styled.section`
+    max-width: 400px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+`
+
+const SeatPlace = styled.article`
+    width: 26px;
+    height: 26px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 6px;
+    background: ${props => props.availability === 0 ? "#C3CFD9" : props.availability === 1 ? "#F7C52B" : "#8DD7CF"};
+    border: 1px solid ${props => props.availability === 0 ? "#808F9D" : props.availability === 1 ? "F7C52B" : "#1AAE9E"};
+    box-sizing: border-box;
+    border-radius: 12px;
+    font-size: 10px;
+    line-height: 13px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.005em;
+    color: #000000;
+`
+
+const Section = styled.section`
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; 
+    font-size: 13px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.013em;
+    color: #4E5A65;
+`
+
+const Article = styled.article`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+`

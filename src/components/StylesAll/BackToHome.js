@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Backpage = styled.div`
+const BackToHome = styled.div`
     ion-icon{
         position: fixed;
         left: 20px;
@@ -12,3 +12,4 @@ export const Backpage = styled.div`
         cursor: pointer;
     }
 `
+export default BackToHome;

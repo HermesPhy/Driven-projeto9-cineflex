@@ -1,16 +1,13 @@
 import { useState, useEffect } from "react";
 import {useParams, Link, useNavigate} from "react-router-dom";
 import axios from "axios";
+import styled from "styled-components";
 
-import {Title} from "../StylesAll/Title";
-import {Main} from "../StylesAll/Main";
-import {Button} from "../StylesAll/Button";
-import {BackToHome} from "../StylesAll/BackToHome";
-import {Footer} from "../Footer/";
-
-import {SessionInfo} from "./style";
-import {Date} from "./style";
-import {Hours} from "./style";
+import Title from "../StylesAll/Title";
+import Main from "../StylesAll/Main";
+import Button from "../StylesAll/Button";
+import BackToHome from "../StylesAll/BackToHome";
+import Footer from "../Footer/";
 
 export default function SelectSession(){
 
@@ -67,3 +64,29 @@ export default function SelectSession(){
         </>
         );
 }
+
+const SessionInfo = styled.article`
+    width: 400px;
+    height: 88px;
+`
+
+const Date = styled.h3`
+    height: 35px;
+    margin-left: 24px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: left;
+    letter-spacing: 0.02em;
+    color: #293845;
+`
+
+const Hours = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 24px;
+`

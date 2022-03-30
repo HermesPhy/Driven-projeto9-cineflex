@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MovieBanner = styled.article`
+const ImageMovies = styled.article`
     width: ${props => props.footer === undefined ? 145 : 64}px;
     height: ${props => props.footer === undefined ? 210: 89}px;
     background: #FFFFFF;
@@ -17,3 +17,5 @@ export const MovieBanner = styled.article`
         background: url(${props => props.imagePath});
     }
 `
+
+export default ImageMovies;
